@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h2>Profile</h2>
+    <h3><a href="{% url 'accountupdate' %}">Update Account</a></h3>
+    <div><img src="{{ user.profile.image.url }}" alt="profile-pics" height=125px width=125px><h3>{{ user.username }}</h3></div>
+    <h4>{{ user.email }}</h4>
+    <a href="{% url 'user-post-list' user.username %}"><h4>Posts by You</h4></a>
+
+
+
+{% endblock %}

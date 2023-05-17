@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+ {% block content %}
+
+<h1>{{object.headlines}}</h1>
+<a href="{% url 'user-post-list' object.author.username %}"><h2>{{ object.author}}</h2></a>
+<h2>{{ object.datetime}}</h2>
+<h2>{{ object.content}}</h2>
+
+    {% if object.author == request.user %}
+       <a href='{% url 'post-update' object.pk%}'>Update</a>
+       <a href= '{% url 'post-delete' object.pk %}'>Delete</a>
+    {% endif %}
+
+ {% endblock %}
